@@ -1,0 +1,35 @@
+<!-- <div style="margin-top: 5rem;">
+    <span style="color: white">(ETA)</span>
+</div> -->
+<div class="col-lg-12 d-inline-block" class="timeline-card">
+    <div class="timeline-col col-lg-6">
+        <div class="timeline">
+            <div class="timeline-row col-lg-12" *ngFor="let row of timelineData; let i = index" (click)="selectFight(row)"  [ngClass]="row == selectedFightRow ? 'active' : 'inactive'">
+                <div class="container left col-lg-3 d-inline-block" [ngClass]="{'last': i == (timelineData.length -1)}">
+                    <div class="content">
+                        <!-- <span *ngIf="i ===0">(ETA)</span> -->
+                        <h1>{{row.time}}</h1>
+                    </div>
+                </div>
+                <div class="container right col-lg-9 d-inline-block">
+                    <div class="content">
+                        <span class="d-inline-block" style="width: 45%">
+                            <h3 class="text-fill-gold">{{row.fighters[0].name}}</h3>
+                            <h1>{{row.fighters[0].surname}}</h1>
+                        </span>
+                        <span class="d-inline-block" class="text-fill-gold" style="width: 10%; text-align: center; vertical-align: super;">
+                            VS
+                        </span>
+                        <span class="d-inline-block" style="width: 45%">
+                            <h3 class="text-fill-gold">{{row.fighters[1].name}}</h3>
+                            <h1>{{row.fighters[1].surname}}</h1>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="image-col col-lg-6">
+        <img class="img-fluid" src="{{fightImageSrc}}" [ngClass]="{'image-show': imageTransitionFinished}" (transitionend)="imageTransitionEnd()">
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<body *ngIf="dataLoaded">
+    <div class="fight-card">
+        <h1>
+            <span class="text-outline-red">FIGHT</span>
+            <span class="text-outline-white" style="padding-left: 1rem;">CARD</span>
+        </h1>
+        <div class="subtitle">{{description.dateTime}}</div>
+        <div class="subtitle">{{description.location}}</div>
+
+        <app-timeline [timelineData]="timelineData"></app-timeline>
+    </div>
+</body>

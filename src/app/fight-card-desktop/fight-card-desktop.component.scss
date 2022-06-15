@@ -1,0 +1,60 @@
+
+@import "../../variables.scss"; //SASS vars need importing to all component stylesheets - cant get it to inherit from variables from import in styles.scss
+
+body {
+    min-width: 350px;
+}
+
+.fight-card {
+    margin-left: $card-horizontal-margin;
+    margin-right: $card-horizontal-margin;
+    margin-top: $card-vertical-margin;
+    width: calc(100vw - $card-horizontal-margin * 2);
+    height: calc(100vh - $card-vertical-margin);
+    // overflow-y: hidden;
+}
+
+h1, .subtitle {
+    font-family: 'nimbus-sans-extended';
+    font-style: normal;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: min(115px, 7vw);
+    line-height: min(85px, 10.5vw);
+    // font-size: 103px;
+    // line-height: 124px;
+    display: flex;
+    color: $black;
+}
+
+.subtitle {
+    font-weight: 700;
+    font-size: min(17px, 1.3vw);
+    line-height: min(20px, 1.5vw);
+    // font-size: 17px;
+    // line-height: 20px;
+    display: flex;
+    margin-bottom: 0;
+    color: $white;
+}
+
+.text-outline-red {
+    -webkit-text-stroke: 2px $red;
+}
+
+.text-outline-white {
+    -webkit-text-stroke: 2px $white;
+}
+
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: max(44px, 9.5vw);
+    }
+    
+    .subtitle {
+        font-size: max(15px, 1.3vw);
+        line-height: max(18px, 1.5vw);
+    }     
+}
