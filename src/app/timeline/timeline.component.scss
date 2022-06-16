@@ -8,10 +8,9 @@ div[class*="col-lg-"] {
 
 .timeline-card {
   margin-top: 1.5rem;
-  padding-right: 1rem;
 }
 
-h1, h3 {
+h1, h3 { //figma
   font-family: 'nimbus-sans-condensed';
   font-style: normal;
   font-weight: 900;
@@ -20,14 +19,15 @@ h1, h3 {
 }
 
 h1 {
-  font-size: 30px;
-  line-height: 36px;
+  //figma says 30px/36px but these are too large when overlayed against figma prototype
+  font-size: 26px;
+  line-height: 32px;
   letter-spacing: 0.02em;
   color: $white;
 }
 h3 {
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 16px; //figma
+  line-height: 19px; //figma
 }
 
 .text-fill-gold {
@@ -74,8 +74,8 @@ img {
   position: absolute;
   width: 2px;
   background-color: #D43B38;
-  top: 5%;
-  bottom: 15%;
+  top: 65px;
+  bottom: 14%;
   left: 25%;
   margin-left: -3px;
 }
@@ -105,8 +105,9 @@ img {
 
 .active > .container > .content > h1, .active > .container > .content > span > h1 {
   opacity: 100%;
-  font-size: 35px;
-  line-height: 42px;
+  //figma says 35px/42px but these are too large when overlayed against figma prototype
+  font-size: 30px;
+  line-height: 38px;
   transition: 0.25s;
 }
 
@@ -145,8 +146,6 @@ img {
   color: $white;
 }
 
-/********************** Responsive media queries **********************/
-
 //adjust timeline bullet point alignment @ <=1700px
 @media screen and (max-width: 1700px) {
   .container.left::after {
@@ -154,10 +153,9 @@ img {
   }
 }
 //adjust timeline offsets @ <=1100px to prevent extension beyond first/last bullet point
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1185px) {
   .timeline::after {
-    top: 6%;
-    bottom: 14%;
+    bottom: 12%;
   }
 }
 //force col widths @ <=995px to keep timeline alignment w/ parallel image
@@ -166,14 +164,8 @@ img {
     max-width: 50%;
   }
 }
-//reduce rhs (fighter names) padding from timeline to keep timeline alignment w/ parallel image
-@media screen and (max-width: 975px) {
-  .container.right {
-    padding-left: 7.5%;
-  }
-}
-//move timeline and image to separate vertically-stacked containers @ <=900px
-@media screen and (max-width: 900px) { 
+//move timeline and image to separate vertically-stacked containers and adjust alignments  @ <=900px
+@media screen and (max-width: 970px) { 
   .timeline-card {
     margin-top: 3rem;
   }
@@ -198,7 +190,6 @@ img {
   }
   
   .timeline::after {
-    top: 8%;
     bottom: 12%;
   }
  
@@ -208,14 +199,18 @@ img {
 }
 //transform timeline to horizontal display + remove rhs (fighter names) @ <=600px
 @media screen and (max-width: 600px) { 
+  img {
+    padding-right: 1.5rem;  
+  }
+
   .container.right {
     display: none!important;
   }
 
   .timeline::after {
-    top: 80px;
+    top: 109px;
     height: 5%;
-    width: 78%;
+    width: 77%;
     left: 10%;
     /* transform: rotate(90deg); */
   }
@@ -252,7 +247,7 @@ img {
     transition: unset;
   }
 }
-
+//adjust timeline bullet point horizontal alignment, scale image and headings w/ view width @ <=500px
 @media screen and (max-width: 550px) { 
   .container.left::after {
     right: 40px;
@@ -277,29 +272,33 @@ img {
     top: 75px;
   }
 }
+//adjust timeline bullet point horizontal alignment @<=490px
 @media screen and (max-width: 490px) { 
   .container.left::after {
     right: 35px;
   }
 }
+//adjust timeline bullet point horizontal alignment and timeline vertical alignment @<=440px
 @media screen and (max-width: 440px) { 
   .container.left::after {
     right: 30px;
   }
+  .timeline::after {
+    top: 108px;
+  }
 }
+//adjust timeline bullet point horizontal alignment and timeline vertical alignment @<=440px
 @media screen and (max-width: 400px) {
 .container.left::after {
     right: 22px;
   }
-}
-@media screen and (max-height: 750px) { 
-  .timeline-col {
-    height: 150px;
+  .timeline::after {
+    left: 11%;
   }
 }
-
-@media screen and (max-height: 675px) { 
+//adjust timeline container for short screen in horizontal-timeline view to prevent image cropping off-screen
+@media screen and (max-height: 750px) and (max-width: 600px) { 
   .timeline-col {
-    height: 125px;
+    height: 150px;
   }
 }
