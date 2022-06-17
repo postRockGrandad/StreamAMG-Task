@@ -29,7 +29,7 @@ export class TimelineComponent implements OnInit, OnChanges {
     //set initial fight selection on first change
     //- i.e. initial binding value passed in by parent component
     if(changes['timelineData']?.firstChange){
-      this.selectedFightRow = this.timelineData[1];
+      this.selectedFightRow = this.timelineData[0];
       this.imageTransitionEnd();
     }
   }
